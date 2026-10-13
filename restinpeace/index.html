@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="bg-overlay"></div>
+
+    <header>
+        <div class="header-content">
+            <h1>Weather</h1>
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Search for a city..." value="New York">
+                <button id="search-btn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--  The weather result will be displayed here -->
+        <article id="result">
+            <h2 id="location">Loading...</h2>
+            <div id="weather-main">
+                <div id="temp" class="temp">--°F</div>
+                <div id="condition" class="condition">--</div>
+                <img id="icon" src="" alt="weather" class="icon">
+            </div>
+            <div id="details" class="details">
+                <div class="detail"><span>Humidity</span> <span id="humidity">--%</span></div>
+                <div class="detail"><span>Wind</span> <span id="wind">-- mph</span></div>
+                <div class="detail"><span>Feels Like</span> <span id="feels">--°F</span></div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>Weather data from WeatherAPI.com</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

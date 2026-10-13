@@ -1,6 +1,7 @@
 const API_KEY = "ef073344a0084a648e7232647260302";
 const API_URL = "https://api.weatherapi.com/v1/current.json";
 
+// get references to the elements we will fill in
 const input = document.getElementById("city-input");
 const btn = document.getElementById("search-btn");
 const bg = document.querySelector(".bg-overlay");
@@ -29,18 +30,20 @@ async function getWeather(city) {
             return;
         }
 
+        // fill in the page with the data from the API response
         const loc = data.location;
         const curr = data.current;
-
+        
+        // display the city name and region, temperature, condition, icon, humidity, wind speed, and feels like temperature
         cityName.textContent = `${loc.name}, ${loc.region}`;
-        temp.textContent = Math.round(curr.temp_f) + "°F";
+        temp.textContent = Math.round(curr.temp_c) + "°C";
         condition.textContent = curr.condition.text;
         icon.src = "https:" + curr.condition.icon;
         humidity.textContent = curr.humidity + "%";
-        wind.textContent = Math.round(curr.wind_mph) + " mph";
-        feels.textContent = Math.round(curr.feelslike_f) + "°F";
+        wind.textContent = Math.round(curr.wind_kph) + " kmph";
+        feels.textContent = Math.round(curr.feelslike_c) + "°C";
 
-        // lighter background in the day, darker at night
+        // change the text color based on the background
         bg.style.background = curr.is_day
             ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
             : "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)";
@@ -50,17 +53,18 @@ async function getWeather(city) {
     }
 }
 
+// search for the city in the input box and get the weather
 function search() {
     const city = input.value.trim();
     if (city) getWeather(city);
 }
 
+// search when the button is clicked
 btn.addEventListener("click", search);
 
-// pressing Enter also searches
-input.addEventListener("keydown", (e) => {
+//  input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") search();
-});
+;
 
 // show the first city when the page opens
 getWeather(input.value);

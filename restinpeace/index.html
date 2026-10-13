@@ -21,19 +21,23 @@
 
     <main>
         <!--  The weather result will be displayed here -->
-        <article id="result">
+        <section id="result">
+            <!-- this is the title -->
             <h2 id="location">Loading...</h2>
-            <div id="weather-main">
+            <!-- Temperature and weather Icons -->
+            <article id="weather-main">
                 <div id="temp" class="temp">--°F</div>
                 <div id="condition" class="condition">--</div>
                 <img id="icon" src="" alt="weather" class="icon">
-            </div>
-            <div id="details" class="details">
+            </article>
+            
+            <!-- Weather Details -->
+            <article id="details" class="details">
                 <div class="detail"><span>Humidity</span> <span id="humidity">--%</span></div>
                 <div class="detail"><span>Wind</span> <span id="wind">-- mph</span></div>
                 <div class="detail"><span>Feels Like</span> <span id="feels">--°F</span></div>
-            </div>
-        </article>
+            </article>
+        </section>
     </main>
 
     <footer>
